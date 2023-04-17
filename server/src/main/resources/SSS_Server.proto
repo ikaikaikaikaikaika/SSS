@@ -1,4 +1,5 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-package SMART_SURVEILLANCE_SECURITY;
+package smart_surveillance_security;
+
