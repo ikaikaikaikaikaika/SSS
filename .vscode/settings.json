@@ -33,7 +33,7 @@
                 "type": "local",
                 "name": "HOTSITE",
                 "description": "A local folder",
-                "dir": "target/SDDZYY/",
+                "dir": "target/SSS/",
                 "mappings": [
                     {
                         "source": "src/main/webapp",
