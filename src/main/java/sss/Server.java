@@ -25,14 +25,16 @@ public class Server extends ServiceRouteImplBase {
 	}
 
 	@Override
-	public void sayHello(HelloRequest request, StreamObserver<HelloReply> responseObserver) {
-		// TODO Auto-generated method stub
-		System.out.println("--Receiving Hello Request from Client--");
-		System.out.println("Client sent the message -- " + request.getName());
-		
-		HelloReply reply = HelloReply.newBuilder().setMessage("Hello " + request.getName()).build();
-		
-		System.out.println("Server is sending the response -- " + reply.getMessage());
+	public void detectionMotion(MotionDetectionRequest request, StreamObserver<MotionDetectionResponse> responseObserver) {
+			String result;
+		if (request.getIsMoving() == true){
+			result=("Someone is moving in area!");
+
+		}
+		else{
+			result=("Area is empty.");
+		}
+		MotionDetectionResponse reply = MotionDetectionResponse.newBuilder().setMovingResponse(result).build();
 		responseObserver.onNext(reply);
 		responseObserver.onCompleted();
 	}

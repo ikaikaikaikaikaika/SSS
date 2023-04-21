@@ -4,23 +4,19 @@
 package sss.generated;
 
 /**
- * <pre>
- * The request message containing the user's name.
- * </pre>
- *
- * Protobuf type {@code sss.HelloRequest}
+ * Protobuf type {@code sss.MotionDetectionRequest}
  */
-public  final class HelloRequest extends
+public  final class MotionDetectionRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:sss.HelloRequest)
-    HelloRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:sss.MotionDetectionRequest)
+    MotionDetectionRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use HelloRequest.newBuilder() to construct.
-  private HelloRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use MotionDetectionRequest.newBuilder() to construct.
+  private MotionDetectionRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private HelloRequest() {
-    name_ = "";
+  private MotionDetectionRequest() {
+    isMoving_ = false;
   }
 
   @java.lang.Override
@@ -28,7 +24,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HelloRequest(
+  private MotionDetectionRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -47,10 +43,9 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
+          case 8: {
 
-            name_ = s;
+            isMoving_ = input.readBool();
             break;
           }
           default: {
@@ -74,49 +69,24 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return sss.generated.ServiceImpl.internal_static_sss_HelloRequest_descriptor;
+    return sss.generated.ServiceImpl.internal_static_sss_MotionDetectionRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return sss.generated.ServiceImpl.internal_static_sss_HelloRequest_fieldAccessorTable
+    return sss.generated.ServiceImpl.internal_static_sss_MotionDetectionRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            sss.generated.HelloRequest.class, sss.generated.HelloRequest.Builder.class);
+            sss.generated.MotionDetectionRequest.class, sss.generated.MotionDetectionRequest.Builder.class);
   }
 
-  public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  public static final int IS_MOVING_FIELD_NUMBER = 1;
+  private boolean isMoving_;
   /**
-   * <code>string name = 1;</code>
+   * <code>bool is_moving = 1;</code>
    */
-  public java.lang.String getName() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      name_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string name = 1;</code>
-   */
-  public com.google.protobuf.ByteString
-      getNameBytes() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      name_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public boolean getIsMoving() {
+    return isMoving_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -133,8 +103,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+    if (isMoving_ != false) {
+      output.writeBool(1, isMoving_);
     }
     unknownFields.writeTo(output);
   }
@@ -145,8 +115,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+    if (isMoving_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(1, isMoving_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -158,14 +129,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof sss.generated.HelloRequest)) {
+    if (!(obj instanceof sss.generated.MotionDetectionRequest)) {
       return super.equals(obj);
     }
-    sss.generated.HelloRequest other = (sss.generated.HelloRequest) obj;
+    sss.generated.MotionDetectionRequest other = (sss.generated.MotionDetectionRequest) obj;
 
     boolean result = true;
-    result = result && getName()
-        .equals(other.getName());
+    result = result && (getIsMoving()
+        == other.getIsMoving());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -177,76 +148,77 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getName().hashCode();
+    hash = (37 * hash) + IS_MOVING_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getIsMoving());
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static sss.generated.HelloRequest parseFrom(
+  public static sss.generated.MotionDetectionRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static sss.generated.HelloRequest parseFrom(
+  public static sss.generated.MotionDetectionRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static sss.generated.HelloRequest parseFrom(
+  public static sss.generated.MotionDetectionRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static sss.generated.HelloRequest parseFrom(
+  public static sss.generated.MotionDetectionRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static sss.generated.HelloRequest parseFrom(byte[] data)
+  public static sss.generated.MotionDetectionRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static sss.generated.HelloRequest parseFrom(
+  public static sss.generated.MotionDetectionRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static sss.generated.HelloRequest parseFrom(java.io.InputStream input)
+  public static sss.generated.MotionDetectionRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static sss.generated.HelloRequest parseFrom(
+  public static sss.generated.MotionDetectionRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static sss.generated.HelloRequest parseDelimitedFrom(java.io.InputStream input)
+  public static sss.generated.MotionDetectionRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static sss.generated.HelloRequest parseDelimitedFrom(
+  public static sss.generated.MotionDetectionRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static sss.generated.HelloRequest parseFrom(
+  public static sss.generated.MotionDetectionRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static sss.generated.HelloRequest parseFrom(
+  public static sss.generated.MotionDetectionRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -259,7 +231,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(sss.generated.HelloRequest prototype) {
+  public static Builder newBuilder(sss.generated.MotionDetectionRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -275,30 +247,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * The request message containing the user's name.
-   * </pre>
-   *
-   * Protobuf type {@code sss.HelloRequest}
+   * Protobuf type {@code sss.MotionDetectionRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:sss.HelloRequest)
-      sss.generated.HelloRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:sss.MotionDetectionRequest)
+      sss.generated.MotionDetectionRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return sss.generated.ServiceImpl.internal_static_sss_HelloRequest_descriptor;
+      return sss.generated.ServiceImpl.internal_static_sss_MotionDetectionRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return sss.generated.ServiceImpl.internal_static_sss_HelloRequest_fieldAccessorTable
+      return sss.generated.ServiceImpl.internal_static_sss_MotionDetectionRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              sss.generated.HelloRequest.class, sss.generated.HelloRequest.Builder.class);
+              sss.generated.MotionDetectionRequest.class, sss.generated.MotionDetectionRequest.Builder.class);
     }
 
-    // Construct using sss.generated.HelloRequest.newBuilder()
+    // Construct using sss.generated.MotionDetectionRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -316,7 +284,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      name_ = "";
+      isMoving_ = false;
 
       return this;
     }
@@ -324,17 +292,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return sss.generated.ServiceImpl.internal_static_sss_HelloRequest_descriptor;
+      return sss.generated.ServiceImpl.internal_static_sss_MotionDetectionRequest_descriptor;
     }
 
     @java.lang.Override
-    public sss.generated.HelloRequest getDefaultInstanceForType() {
-      return sss.generated.HelloRequest.getDefaultInstance();
+    public sss.generated.MotionDetectionRequest getDefaultInstanceForType() {
+      return sss.generated.MotionDetectionRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public sss.generated.HelloRequest build() {
-      sss.generated.HelloRequest result = buildPartial();
+    public sss.generated.MotionDetectionRequest build() {
+      sss.generated.MotionDetectionRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -342,9 +310,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public sss.generated.HelloRequest buildPartial() {
-      sss.generated.HelloRequest result = new sss.generated.HelloRequest(this);
-      result.name_ = name_;
+    public sss.generated.MotionDetectionRequest buildPartial() {
+      sss.generated.MotionDetectionRequest result = new sss.generated.MotionDetectionRequest(this);
+      result.isMoving_ = isMoving_;
       onBuilt();
       return result;
     }
@@ -383,19 +351,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof sss.generated.HelloRequest) {
-        return mergeFrom((sss.generated.HelloRequest)other);
+      if (other instanceof sss.generated.MotionDetectionRequest) {
+        return mergeFrom((sss.generated.MotionDetectionRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(sss.generated.HelloRequest other) {
-      if (other == sss.generated.HelloRequest.getDefaultInstance()) return this;
-      if (!other.getName().isEmpty()) {
-        name_ = other.name_;
-        onChanged();
+    public Builder mergeFrom(sss.generated.MotionDetectionRequest other) {
+      if (other == sss.generated.MotionDetectionRequest.getDefaultInstance()) return this;
+      if (other.getIsMoving() != false) {
+        setIsMoving(other.getIsMoving());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -412,11 +379,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      sss.generated.HelloRequest parsedMessage = null;
+      sss.generated.MotionDetectionRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (sss.generated.HelloRequest) e.getUnfinishedMessage();
+        parsedMessage = (sss.generated.MotionDetectionRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -426,71 +393,28 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object name_ = "";
+    private boolean isMoving_ ;
     /**
-     * <code>string name = 1;</code>
+     * <code>bool is_moving = 1;</code>
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    public boolean getIsMoving() {
+      return isMoving_;
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>bool is_moving = 1;</code>
      */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string name = 1;</code>
-     */
-    public Builder setName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      name_ = value;
+    public Builder setIsMoving(boolean value) {
+      
+      isMoving_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>bool is_moving = 1;</code>
      */
-    public Builder clearName() {
+    public Builder clearIsMoving() {
       
-      name_ = getDefaultInstance().getName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string name = 1;</code>
-     */
-    public Builder setNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      name_ = value;
+      isMoving_ = false;
       onChanged();
       return this;
     }
@@ -507,41 +431,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:sss.HelloRequest)
+    // @@protoc_insertion_point(builder_scope:sss.MotionDetectionRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:sss.HelloRequest)
-  private static final sss.generated.HelloRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:sss.MotionDetectionRequest)
+  private static final sss.generated.MotionDetectionRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new sss.generated.HelloRequest();
+    DEFAULT_INSTANCE = new sss.generated.MotionDetectionRequest();
   }
 
-  public static sss.generated.HelloRequest getDefaultInstance() {
+  public static sss.generated.MotionDetectionRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<HelloRequest>
-      PARSER = new com.google.protobuf.AbstractParser<HelloRequest>() {
+  private static final com.google.protobuf.Parser<MotionDetectionRequest>
+      PARSER = new com.google.protobuf.AbstractParser<MotionDetectionRequest>() {
     @java.lang.Override
-    public HelloRequest parsePartialFrom(
+    public MotionDetectionRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HelloRequest(input, extensionRegistry);
+      return new MotionDetectionRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<HelloRequest> parser() {
+  public static com.google.protobuf.Parser<MotionDetectionRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<HelloRequest> getParserForType() {
+  public com.google.protobuf.Parser<MotionDetectionRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public sss.generated.HelloRequest getDefaultInstanceForType() {
+  public sss.generated.MotionDetectionRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

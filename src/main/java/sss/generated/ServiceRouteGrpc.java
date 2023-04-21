@@ -16,9 +16,6 @@ import static io.grpc.stub.ServerCalls.asyncUnimplementedStreamingCall;
 import static io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall;
 
 /**
- * <pre>
- * The greeting service definition.
- * </pre>
  */
 @javax.annotation.Generated(
     value = "by gRPC proto compiler (version 1.15.0)",
@@ -30,36 +27,36 @@ public final class ServiceRouteGrpc {
   public static final String SERVICE_NAME = "sss.ServiceRoute";
 
   // Static method descriptors that strictly reflect the proto.
-  private static volatile io.grpc.MethodDescriptor<sss.generated.HelloRequest,
-      sss.generated.HelloReply> getSayHelloMethod;
+  private static volatile io.grpc.MethodDescriptor<sss.generated.MotionDetectionRequest,
+      sss.generated.MotionDetectionResponse> getDetectionMotionMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "SayHello",
-      requestType = sss.generated.HelloRequest.class,
-      responseType = sss.generated.HelloReply.class,
+      fullMethodName = SERVICE_NAME + '/' + "DetectionMotion",
+      requestType = sss.generated.MotionDetectionRequest.class,
+      responseType = sss.generated.MotionDetectionResponse.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<sss.generated.HelloRequest,
-      sss.generated.HelloReply> getSayHelloMethod() {
-    io.grpc.MethodDescriptor<sss.generated.HelloRequest, sss.generated.HelloReply> getSayHelloMethod;
-    if ((getSayHelloMethod = ServiceRouteGrpc.getSayHelloMethod) == null) {
+  public static io.grpc.MethodDescriptor<sss.generated.MotionDetectionRequest,
+      sss.generated.MotionDetectionResponse> getDetectionMotionMethod() {
+    io.grpc.MethodDescriptor<sss.generated.MotionDetectionRequest, sss.generated.MotionDetectionResponse> getDetectionMotionMethod;
+    if ((getDetectionMotionMethod = ServiceRouteGrpc.getDetectionMotionMethod) == null) {
       synchronized (ServiceRouteGrpc.class) {
-        if ((getSayHelloMethod = ServiceRouteGrpc.getSayHelloMethod) == null) {
-          ServiceRouteGrpc.getSayHelloMethod = getSayHelloMethod = 
-              io.grpc.MethodDescriptor.<sss.generated.HelloRequest, sss.generated.HelloReply>newBuilder()
+        if ((getDetectionMotionMethod = ServiceRouteGrpc.getDetectionMotionMethod) == null) {
+          ServiceRouteGrpc.getDetectionMotionMethod = getDetectionMotionMethod = 
+              io.grpc.MethodDescriptor.<sss.generated.MotionDetectionRequest, sss.generated.MotionDetectionResponse>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
               .setFullMethodName(generateFullMethodName(
-                  "sss.ServiceRoute", "SayHello"))
+                  "sss.ServiceRoute", "DetectionMotion"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  sss.generated.HelloRequest.getDefaultInstance()))
+                  sss.generated.MotionDetectionRequest.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  sss.generated.HelloReply.getDefaultInstance()))
-                  .setSchemaDescriptor(new ServiceRouteMethodDescriptorSupplier("SayHello"))
+                  sss.generated.MotionDetectionResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new ServiceRouteMethodDescriptorSupplier("DetectionMotion"))
                   .build();
           }
         }
      }
-     return getSayHelloMethod;
+     return getDetectionMotionMethod;
   }
 
   /**
@@ -86,39 +83,30 @@ public final class ServiceRouteGrpc {
   }
 
   /**
-   * <pre>
-   * The greeting service definition.
-   * </pre>
    */
   public static abstract class ServiceRouteImplBase implements io.grpc.BindableService {
 
     /**
-     * <pre>
-     * Sends a greeting
-     * </pre>
      */
-    public void sayHello(sss.generated.HelloRequest request,
-        io.grpc.stub.StreamObserver<sss.generated.HelloReply> responseObserver) {
-      asyncUnimplementedUnaryCall(getSayHelloMethod(), responseObserver);
+    public void detectionMotion(sss.generated.MotionDetectionRequest request,
+        io.grpc.stub.StreamObserver<sss.generated.MotionDetectionResponse> responseObserver) {
+      asyncUnimplementedUnaryCall(getDetectionMotionMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
-            getSayHelloMethod(),
+            getDetectionMotionMethod(),
             asyncUnaryCall(
               new MethodHandlers<
-                sss.generated.HelloRequest,
-                sss.generated.HelloReply>(
-                  this, METHODID_SAY_HELLO)))
+                sss.generated.MotionDetectionRequest,
+                sss.generated.MotionDetectionResponse>(
+                  this, METHODID_DETECTION_MOTION)))
           .build();
     }
   }
 
   /**
-   * <pre>
-   * The greeting service definition.
-   * </pre>
    */
   public static final class ServiceRouteStub extends io.grpc.stub.AbstractStub<ServiceRouteStub> {
     private ServiceRouteStub(io.grpc.Channel channel) {
@@ -137,21 +125,15 @@ public final class ServiceRouteGrpc {
     }
 
     /**
-     * <pre>
-     * Sends a greeting
-     * </pre>
      */
-    public void sayHello(sss.generated.HelloRequest request,
-        io.grpc.stub.StreamObserver<sss.generated.HelloReply> responseObserver) {
+    public void detectionMotion(sss.generated.MotionDetectionRequest request,
+        io.grpc.stub.StreamObserver<sss.generated.MotionDetectionResponse> responseObserver) {
       asyncUnaryCall(
-          getChannel().newCall(getSayHelloMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getDetectionMotionMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
   /**
-   * <pre>
-   * The greeting service definition.
-   * </pre>
    */
   public static final class ServiceRouteBlockingStub extends io.grpc.stub.AbstractStub<ServiceRouteBlockingStub> {
     private ServiceRouteBlockingStub(io.grpc.Channel channel) {
@@ -170,20 +152,14 @@ public final class ServiceRouteGrpc {
     }
 
     /**
-     * <pre>
-     * Sends a greeting
-     * </pre>
      */
-    public sss.generated.HelloReply sayHello(sss.generated.HelloRequest request) {
+    public sss.generated.MotionDetectionResponse detectionMotion(sss.generated.MotionDetectionRequest request) {
       return blockingUnaryCall(
-          getChannel(), getSayHelloMethod(), getCallOptions(), request);
+          getChannel(), getDetectionMotionMethod(), getCallOptions(), request);
     }
   }
 
   /**
-   * <pre>
-   * The greeting service definition.
-   * </pre>
    */
   public static final class ServiceRouteFutureStub extends io.grpc.stub.AbstractStub<ServiceRouteFutureStub> {
     private ServiceRouteFutureStub(io.grpc.Channel channel) {
@@ -202,18 +178,15 @@ public final class ServiceRouteGrpc {
     }
 
     /**
-     * <pre>
-     * Sends a greeting
-     * </pre>
      */
-    public com.google.common.util.concurrent.ListenableFuture<sss.generated.HelloReply> sayHello(
-        sss.generated.HelloRequest request) {
+    public com.google.common.util.concurrent.ListenableFuture<sss.generated.MotionDetectionResponse> detectionMotion(
+        sss.generated.MotionDetectionRequest request) {
       return futureUnaryCall(
-          getChannel().newCall(getSayHelloMethod(), getCallOptions()), request);
+          getChannel().newCall(getDetectionMotionMethod(), getCallOptions()), request);
     }
   }
 
-  private static final int METHODID_SAY_HELLO = 0;
+  private static final int METHODID_DETECTION_MOTION = 0;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -232,9 +205,9 @@ public final class ServiceRouteGrpc {
     @java.lang.SuppressWarnings("unchecked")
     public void invoke(Req request, io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
-        case METHODID_SAY_HELLO:
-          serviceImpl.sayHello((sss.generated.HelloRequest) request,
-              (io.grpc.stub.StreamObserver<sss.generated.HelloReply>) responseObserver);
+        case METHODID_DETECTION_MOTION:
+          serviceImpl.detectionMotion((sss.generated.MotionDetectionRequest) request,
+              (io.grpc.stub.StreamObserver<sss.generated.MotionDetectionResponse>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -297,7 +270,7 @@ public final class ServiceRouteGrpc {
         if (result == null) {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ServiceRouteFileDescriptorSupplier())
-              .addMethod(getSayHelloMethod())
+              .addMethod(getDetectionMotionMethod())
               .build();
         }
       }

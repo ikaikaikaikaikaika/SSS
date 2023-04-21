@@ -15,15 +15,15 @@ public final class ServiceImpl {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sss_HelloRequest_descriptor;
+    internal_static_sss_MotionDetectionRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sss_HelloRequest_fieldAccessorTable;
+      internal_static_sss_MotionDetectionRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sss_HelloReply_descriptor;
+    internal_static_sss_MotionDetectionResponse_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sss_HelloReply_fieldAccessorTable;
+      internal_static_sss_MotionDetectionResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -33,11 +33,13 @@ public final class ServiceImpl {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\tsss.proto\022\003sss\"\034\n\014HelloRequest\022\014\n\004name" +
-      "\030\001 \001(\t\"\035\n\nHelloReply\022\017\n\007message\030\001 \001(\t2@\n" +
-      "\014ServiceRoute\0220\n\010SayHello\022\021.sss.HelloReq" +
-      "uest\032\017.sss.HelloReply\"\000B\036\n\rsss.generated" +
-      "B\013ServiceImplP\001b\006proto3"
+      "\n\tsss.proto\022\003sss\"+\n\026MotionDetectionReque" +
+      "st\022\021\n\tis_moving\030\001 \001(\010\"2\n\027MotionDetection" +
+      "Response\022\027\n\017moving_response\030\001 \001(\t2^\n\014Ser" +
+      "viceRoute\022N\n\017DetectionMotion\022\033.sss.Motio" +
+      "nDetectionRequest\032\034.sss.MotionDetectionR" +
+      "esponse\"\000B\036\n\rsss.generatedB\013ServiceImplP" +
+      "\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -51,18 +53,18 @@ public final class ServiceImpl {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_sss_HelloRequest_descriptor =
+    internal_static_sss_MotionDetectionRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_sss_HelloRequest_fieldAccessorTable = new
+    internal_static_sss_MotionDetectionRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sss_HelloRequest_descriptor,
-        new java.lang.String[] { "Name", });
-    internal_static_sss_HelloReply_descriptor =
+        internal_static_sss_MotionDetectionRequest_descriptor,
+        new java.lang.String[] { "IsMoving", });
+    internal_static_sss_MotionDetectionResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_sss_HelloReply_fieldAccessorTable = new
+    internal_static_sss_MotionDetectionResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sss_HelloReply_descriptor,
-        new java.lang.String[] { "Message", });
+        internal_static_sss_MotionDetectionResponse_descriptor,
+        new java.lang.String[] { "MovingResponse", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

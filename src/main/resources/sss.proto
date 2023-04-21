@@ -5,19 +5,17 @@ option java_package = "sss.generated";
 option java_outer_classname = "ServiceImpl";
 package sss;
 
-// The greeting service definition.
 service ServiceRoute {
-// Sends a greeting
-	rpc SayHello (HelloRequest) returns (HelloReply) {
-	}
+  rpc DetectionMotion (MotionDetectionRequest) returns (MotionDetectionResponse) {}
+  //2.1.1	RPC Method 1 Motion Detection
+  //Server request Client to return a message if there is an object moving.
+  //simple rpc
 }
 
-// The request message containing the user's name.
-message HelloRequest {
-	string name = 1;
+message MotionDetectionRequest {
+  bool is_moving = 1;
 }
-
-// The response message containing the greetings
-message HelloReply {
-	string message = 1;
+message MotionDetectionResponse {
+  string moving_response = 1;
 }
+//2.1.1	RPC Method 1 Motion Detection
