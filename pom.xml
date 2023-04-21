@@ -1,15 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>SSS</groupId>
 	<artifactId>SSS</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>SSS</name>
+	<version>1.0.0-SNAPSHOT</version>
 
 	<packaging>war</packaging>
+	<name>SSS</name>
 	<url>http://localhost:8080/SSS/</url>
 	
-	
 	<dependencies>
+	    <dependency>
+      		<groupId>junit</groupId>
+      		<artifactId>junit</artifactId>
+      		<version>4.11</version>
+      		<scope>test</scope>
+    	</dependency>
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
@@ -98,7 +105,10 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-
+        	<plugin>
+          		<artifactId>maven-war-plugin</artifactId>
+          		<version>3.2.2</version>
+        	</plugin>
 			<plugin>
 			<groupId>org.apache.tomcat.maven</groupId>
 			<artifactId>tomcat7-maven-plugin</artifactId>
@@ -111,6 +121,7 @@
 				<path>/SSS</path>
 			</configuration>
 			</plugin>
+
 		</plugins>
 	</build>
 </project>
