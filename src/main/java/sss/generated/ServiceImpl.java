@@ -15,55 +15,15 @@ public final class ServiceImpl {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sss_MotionDetectionRequest_descriptor;
+    internal_static_sss_HelloRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sss_MotionDetectionRequest_fieldAccessorTable;
+      internal_static_sss_HelloRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sss_MotionDetectionResponse_descriptor;
+    internal_static_sss_HelloReply_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sss_MotionDetectionResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sss_RecognitionRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sss_RecognitionRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sss_RecognitionResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sss_RecognitionResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sss_MessageRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sss_MessageRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sss_MessageResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sss_MessageResponse_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sss_AudioData_Server_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sss_AudioData_Server_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sss_AudioData_Client_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sss_AudioData_Client_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sss_StreamRequest_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sss_StreamRequest_fieldAccessorTable;
-  static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_sss_StreamResponse_descriptor;
-  static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_sss_StreamResponse_fieldAccessorTable;
+      internal_static_sss_HelloReply_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -73,30 +33,11 @@ public final class ServiceImpl {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\tsss.proto\022\003sss\")\n\026MotionDetectionReque" +
-      "st\022\017\n\007request\030\001 \001(\t\",\n\027MotionDetectionRe" +
-      "sponse\022\021\n\tis_moving\030\001 \001(\010\"#\n\022Recognition" +
-      "Request\022\r\n\005image\030\001 \001(\014\"-\n\023RecognitionRes" +
-      "ponse\022\026\n\016is_blacklisted\030\001 \001(\010\"!\n\016Message" +
-      "Request\022\017\n\007request\030\001 \001(\t\"\"\n\017MessageRespo" +
-      "nse\022\017\n\007message\030\001 \001(\t\"\"\n\020AudioData_Server" +
-      "\022\016\n\006server\030\001 \001(\014\"\"\n\020AudioData_Client\022\016\n\006" +
-      "client\030\001 \001(\014\"\"\n\rStreamRequest\022\021\n\tcamera_" +
-      "id\030\001 \001(\t\"\037\n\016StreamResponse\022\r\n\005frame\030\001 \001(" +
-      "\0142a\n\017MotionDetection\022N\n\017DetectionMotion\022" +
-      "\033.sss.MotionDetectionRequest\032\034.sss.Motio" +
-      "nDetectionResponse\"\0002W\n\017FaceRecognition\022" +
-      "D\n\rRecognizeFace\022\027.sss.RecognitionReques" +
-      "t\032\030.sss.RecognitionResponse\"\0002I\n\013Message" +
-      "Push\022:\n\013PushMessage\022\023.sss.MessageRequest" +
-      "\032\024.sss.MessageResponse\"\0002\253\001\n\025Bidirection" +
-      "alIntercom\022H\n\026Server_to_Client_Audio\022\025.s" +
-      "ss.AudioData_Client\032\025.sss.AudioData_Serv" +
-      "er\"\000\022H\n\026Client_to_Server_Audio\022\025.sss.Aud" +
-      "ioData_Server\032\025.sss.AudioData_Client\"\0002I" +
-      "\n\013CameraCheck\022:\n\rCameraService\022\022.sss.Str" +
-      "eamRequest\032\023.sss.StreamResponse\"\000B\036\n\rsss" +
-      ".generatedB\013ServiceImplP\001b\006proto3"
+      "\n\tsss.proto\022\003sss\"\034\n\014HelloRequest\022\014\n\004name" +
+      "\030\001 \001(\t\"\035\n\nHelloReply\022\017\n\007message\030\001 \001(\t2@\n" +
+      "\014ServiceRoute\0220\n\010SayHello\022\021.sss.HelloReq" +
+      "uest\032\017.sss.HelloReply\"\000B\036\n\rsss.generated" +
+      "B\013ServiceImplP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -110,66 +51,18 @@ public final class ServiceImpl {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_sss_MotionDetectionRequest_descriptor =
+    internal_static_sss_HelloRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_sss_MotionDetectionRequest_fieldAccessorTable = new
+    internal_static_sss_HelloRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sss_MotionDetectionRequest_descriptor,
-        new java.lang.String[] { "Request", });
-    internal_static_sss_MotionDetectionResponse_descriptor =
+        internal_static_sss_HelloRequest_descriptor,
+        new java.lang.String[] { "Name", });
+    internal_static_sss_HelloReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_sss_MotionDetectionResponse_fieldAccessorTable = new
+    internal_static_sss_HelloReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sss_MotionDetectionResponse_descriptor,
-        new java.lang.String[] { "IsMoving", });
-    internal_static_sss_RecognitionRequest_descriptor =
-      getDescriptor().getMessageTypes().get(2);
-    internal_static_sss_RecognitionRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sss_RecognitionRequest_descriptor,
-        new java.lang.String[] { "Image", });
-    internal_static_sss_RecognitionResponse_descriptor =
-      getDescriptor().getMessageTypes().get(3);
-    internal_static_sss_RecognitionResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sss_RecognitionResponse_descriptor,
-        new java.lang.String[] { "IsBlacklisted", });
-    internal_static_sss_MessageRequest_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_sss_MessageRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sss_MessageRequest_descriptor,
-        new java.lang.String[] { "Request", });
-    internal_static_sss_MessageResponse_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_sss_MessageResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sss_MessageResponse_descriptor,
+        internal_static_sss_HelloReply_descriptor,
         new java.lang.String[] { "Message", });
-    internal_static_sss_AudioData_Server_descriptor =
-      getDescriptor().getMessageTypes().get(6);
-    internal_static_sss_AudioData_Server_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sss_AudioData_Server_descriptor,
-        new java.lang.String[] { "Server", });
-    internal_static_sss_AudioData_Client_descriptor =
-      getDescriptor().getMessageTypes().get(7);
-    internal_static_sss_AudioData_Client_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sss_AudioData_Client_descriptor,
-        new java.lang.String[] { "Client", });
-    internal_static_sss_StreamRequest_descriptor =
-      getDescriptor().getMessageTypes().get(8);
-    internal_static_sss_StreamRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sss_StreamRequest_descriptor,
-        new java.lang.String[] { "CameraId", });
-    internal_static_sss_StreamResponse_descriptor =
-      getDescriptor().getMessageTypes().get(9);
-    internal_static_sss_StreamResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_sss_StreamResponse_descriptor,
-        new java.lang.String[] { "Frame", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
