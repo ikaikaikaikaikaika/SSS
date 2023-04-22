@@ -24,6 +24,16 @@ public final class ServiceImpl {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_sss_MotionDetectionResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sss_RecognitionRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sss_RecognitionRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_sss_RecognitionResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_sss_RecognitionResponse_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -35,11 +45,15 @@ public final class ServiceImpl {
     java.lang.String[] descriptorData = {
       "\n\tsss.proto\022\003sss\"+\n\026MotionDetectionReque" +
       "st\022\021\n\tis_moving\030\001 \001(\010\"2\n\027MotionDetection" +
-      "Response\022\027\n\017moving_response\030\001 \001(\t2^\n\014Ser" +
-      "viceRoute\022N\n\017DetectionMotion\022\033.sss.Motio" +
-      "nDetectionRequest\032\034.sss.MotionDetectionR" +
-      "esponse\"\000B\036\n\rsss.generatedB\013ServiceImplP" +
-      "\001b\006proto3"
+      "Response\022\027\n\017moving_response\030\001 \001(\t\"#\n\022Rec" +
+      "ognitionRequest\022\r\n\005image\030\001 \001(\014\"-\n\023Recogn" +
+      "itionResponse\022\026\n\016is_blacklisted\030\001 \001(\0102\246\001" +
+      "\n\014ServiceRoute\022N\n\017DetectionMotion\022\033.sss." +
+      "MotionDetectionRequest\032\034.sss.MotionDetec" +
+      "tionResponse\"\000\022F\n\rRecognizeFace\022\027.sss.Re" +
+      "cognitionRequest\032\030.sss.RecognitionRespon" +
+      "se\"\000(\001B\036\n\rsss.generatedB\013ServiceImplP\001b\006" +
+      "proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -65,6 +79,18 @@ public final class ServiceImpl {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_sss_MotionDetectionResponse_descriptor,
         new java.lang.String[] { "MovingResponse", });
+    internal_static_sss_RecognitionRequest_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_sss_RecognitionRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sss_RecognitionRequest_descriptor,
+        new java.lang.String[] { "Image", });
+    internal_static_sss_RecognitionResponse_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_sss_RecognitionResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_sss_RecognitionResponse_descriptor,
+        new java.lang.String[] { "IsBlacklisted", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

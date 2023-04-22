@@ -1,0 +1,25 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+    <servlet-name>grpc</servlet-name>
+    <servlet-class>io.grpc.netty.shaded.io.grpc.netty.NettyServer</servlet-class>
+    <init-param>
+        <param-name>port</param-name>
+        <param-value>50051</param-value>
+    </init-param>
+    <init-param>
+        <param-name>services</param-name>
+        <param-value>sss.Server</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+</servlet>
+<servlet-mapping>
+    <servlet-name>grpc</servlet-name>
+    <url-pattern>/SSS/*</url-pattern>
+</servlet-mapping>
+
+</web-app>

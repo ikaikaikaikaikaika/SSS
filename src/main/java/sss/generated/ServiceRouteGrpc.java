@@ -59,6 +59,38 @@ public final class ServiceRouteGrpc {
      return getDetectionMotionMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<sss.generated.RecognitionRequest,
+      sss.generated.RecognitionResponse> getRecognizeFaceMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "RecognizeFace",
+      requestType = sss.generated.RecognitionRequest.class,
+      responseType = sss.generated.RecognitionResponse.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+  public static io.grpc.MethodDescriptor<sss.generated.RecognitionRequest,
+      sss.generated.RecognitionResponse> getRecognizeFaceMethod() {
+    io.grpc.MethodDescriptor<sss.generated.RecognitionRequest, sss.generated.RecognitionResponse> getRecognizeFaceMethod;
+    if ((getRecognizeFaceMethod = ServiceRouteGrpc.getRecognizeFaceMethod) == null) {
+      synchronized (ServiceRouteGrpc.class) {
+        if ((getRecognizeFaceMethod = ServiceRouteGrpc.getRecognizeFaceMethod) == null) {
+          ServiceRouteGrpc.getRecognizeFaceMethod = getRecognizeFaceMethod = 
+              io.grpc.MethodDescriptor.<sss.generated.RecognitionRequest, sss.generated.RecognitionResponse>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.CLIENT_STREAMING)
+              .setFullMethodName(generateFullMethodName(
+                  "sss.ServiceRoute", "RecognizeFace"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sss.generated.RecognitionRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  sss.generated.RecognitionResponse.getDefaultInstance()))
+                  .setSchemaDescriptor(new ServiceRouteMethodDescriptorSupplier("RecognizeFace"))
+                  .build();
+          }
+        }
+     }
+     return getRecognizeFaceMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -93,6 +125,18 @@ public final class ServiceRouteGrpc {
       asyncUnimplementedUnaryCall(getDetectionMotionMethod(), responseObserver);
     }
 
+    /**
+     * <pre>
+     *2.1.1	RPC Method 1 Motion Detection
+     *Server request Client to return a message if there is an object moving.
+     *simple rpc
+     * </pre>
+     */
+    public io.grpc.stub.StreamObserver<sss.generated.RecognitionRequest> recognizeFace(
+        io.grpc.stub.StreamObserver<sss.generated.RecognitionResponse> responseObserver) {
+      return asyncUnimplementedStreamingCall(getRecognizeFaceMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -102,6 +146,13 @@ public final class ServiceRouteGrpc {
                 sss.generated.MotionDetectionRequest,
                 sss.generated.MotionDetectionResponse>(
                   this, METHODID_DETECTION_MOTION)))
+          .addMethod(
+            getRecognizeFaceMethod(),
+            asyncClientStreamingCall(
+              new MethodHandlers<
+                sss.generated.RecognitionRequest,
+                sss.generated.RecognitionResponse>(
+                  this, METHODID_RECOGNIZE_FACE)))
           .build();
     }
   }
@@ -130,6 +181,19 @@ public final class ServiceRouteGrpc {
         io.grpc.stub.StreamObserver<sss.generated.MotionDetectionResponse> responseObserver) {
       asyncUnaryCall(
           getChannel().newCall(getDetectionMotionMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     *2.1.1	RPC Method 1 Motion Detection
+     *Server request Client to return a message if there is an object moving.
+     *simple rpc
+     * </pre>
+     */
+    public io.grpc.stub.StreamObserver<sss.generated.RecognitionRequest> recognizeFace(
+        io.grpc.stub.StreamObserver<sss.generated.RecognitionResponse> responseObserver) {
+      return asyncClientStreamingCall(
+          getChannel().newCall(getRecognizeFaceMethod(), getCallOptions()), responseObserver);
     }
   }
 
@@ -187,6 +251,7 @@ public final class ServiceRouteGrpc {
   }
 
   private static final int METHODID_DETECTION_MOTION = 0;
+  private static final int METHODID_RECOGNIZE_FACE = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -219,6 +284,9 @@ public final class ServiceRouteGrpc {
     public io.grpc.stub.StreamObserver<Req> invoke(
         io.grpc.stub.StreamObserver<Resp> responseObserver) {
       switch (methodId) {
+        case METHODID_RECOGNIZE_FACE:
+          return (io.grpc.stub.StreamObserver<Req>) serviceImpl.recognizeFace(
+              (io.grpc.stub.StreamObserver<sss.generated.RecognitionResponse>) responseObserver);
         default:
           throw new AssertionError();
       }
@@ -271,6 +339,7 @@ public final class ServiceRouteGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new ServiceRouteFileDescriptorSupplier())
               .addMethod(getDetectionMotionMethod())
+              .addMethod(getRecognizeFaceMethod())
               .build();
         }
       }

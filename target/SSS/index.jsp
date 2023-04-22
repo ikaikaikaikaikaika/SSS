@@ -11,8 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>SSS</title>
-<style>
-
+    <style>
     #response {
         width: 50%;
         margin: 0 auto;
@@ -25,33 +24,25 @@
 <body>
     <div id="response">
     <form method="post">
-        <input type="submit" name="isMoving" value="true">
-        <input type="submit" name="isMoving" value="false">
+        <input type="submit" value="Move" name="submit">
     </form>
     <%
-        // Create a channel to connect to the server
-        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051)
-                .usePlaintext()
-                .build();
-
-        // Create a stub for the service
+        if(request.getParameter("submit") != null) {
+    	// creat gRPC channel
+        ManagedChannel channel = ManagedChannelBuilder.forAddress("localhost", 50051).usePlaintext().build();
+        // creat gRPC stub
         ServiceRouteGrpc.ServiceRouteBlockingStub stub = ServiceRouteGrpc.newBlockingStub(channel);
-
-        if(request.getParameter("isMoving") != null) {
-            // Build the request message
-            boolean isMoving = Boolean.parseBoolean(request.getParameter("isMoving"));
-            MotionDetectionRequest req = MotionDetectionRequest.newBuilder().setIsMoving(isMoving).build();
-
-            // Call the service
-            MotionDetectionResponse resp = stub.detectionMotion(req);
-
-            // Print the response message
-            out.print("<br>Response from server: " + resp.getMovingResponse());
-        }
-
-        // Shut down the channel
+        // creat request
+        MotionDetectionRequest req = MotionDetectionRequest.newBuilder().setIsMoving(true).build();
+        // get response
+        MotionDetectionResponse resp = stub.detectionMotion(req);
+        // print result
+        out.println(resp.getMovingResponse());
+        // close channel
         channel.shutdown();
+        }
     %>
+
     </div>
 </body>
 </html>
