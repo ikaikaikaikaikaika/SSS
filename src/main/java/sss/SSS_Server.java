@@ -7,19 +7,29 @@ import java.io.IOException;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
+import javax.jmdns.JmDNS;
+import javax.jmdns.ServiceInfo;
+import java.net.InetAddress;
 
 import java.util.Arrays;
 
 
 public class SSS_Server extends ServiceRouteImplBase {
 
-	public static void main(String[] args) {
+	private static final String SERVICE_TYPE = "_myservice._tcp.local.";
+	private static final String SERVICE_NAME = "SSS_Server";
+	private static final int PORT = 50051;
+	public static void main(String[] args) throws IOException{
 		SSS_Server greeterserver = new SSS_Server();
-		int port = 50051;
 		try {
-			Server server = ServerBuilder.forPort(port).addService(greeterserver).build().start();
-			System.out.println("Server Started, listening on : " + port + " port ");
-			server.awaitTermination();			
+			Server server = ServerBuilder.forPort(PORT).addService(greeterserver).build().start();
+			System.out.println("Server Started, listening on : " + PORT + " port ");
+			JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
+			ServiceInfo serviceInfo = ServiceInfo.create(SERVICE_TYPE, SERVICE_NAME, PORT, "SSS Service");
+			jmdns.registerService(serviceInfo);
+			server.awaitTermination();
+			jmdns.unregisterService(serviceInfo);
+			jmdns.close();		
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
