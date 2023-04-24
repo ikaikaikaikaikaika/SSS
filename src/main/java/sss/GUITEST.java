@@ -28,7 +28,7 @@ public class GUITEST{
     public GUITEST(){
         frame = new JFrame();
 		frame.setTitle("SSS Client");
-		frame.setBounds(100, 100, 500, 300);
+		frame.setBounds(100, 100, 400, 200);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		BoxLayout bl = new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS);
@@ -101,7 +101,7 @@ public class GUITEST{
 		});
         panel_service_1.add(Send);
 
-        Clientget = new JTextArea(11, 36);
+        Clientget = new JTextArea(5, 30);
 		Clientget.setLineWrap(true);
 		Clientget.setWrapStyleWord(true);
 		JScrollPane scrollPane2 = new JScrollPane(Clientget);
