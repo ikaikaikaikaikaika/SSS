@@ -3,7 +3,7 @@ package sss.Camera;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.grpc.stub.StreamObserver;
-import sss.Camera.CameraGrpc.CameraBlockingStub;
+//import sss.Camera.CameraGrpc.CameraBlockingStub;
 import sss.Camera.CameraGrpc.CameraStub;
 
 import java.io.IOException;
@@ -17,7 +17,7 @@ import com.google.protobuf.ByteString;
 
 
 public class Camera_Client{
-    private static final String SERVICE_TYPE = "_camera._tcp.local.";
+    private static final String SERVICE_TYPE = "_sss._tcp.local.";
     private static final String SERVICE_NAME = "camera_server";
 
     public static void main(String[] args) throws IOException{
@@ -37,6 +37,8 @@ public class Camera_Client{
         ManagedChannel channel = ManagedChannelBuilder.forTarget(serviceUrl).usePlaintext().build();
         
         CameraStub stub = CameraGrpc.newStub(channel);
+        CameraRequest camera = CameraRequest.newBuilder().setCamera("1").build();
+
         StreamObserver<CameraResponse> responseObserver = new StreamObserver<CameraResponse>() {
             @Override
             public void onNext(CameraResponse audioRespon) {
@@ -54,11 +56,7 @@ public class Camera_Client{
                 channel.shutdown();
             }
         };
-        StreamObserver<CameraRequest> requestObserver = stub.cameraService(responseObserver);
-        requestObserver.onNext(CameraRequest.newBuilder()
-        .setAudiosend(ByteString.copyFrom(new byte[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}))
-        .build());
-        requestObserver.onCompleted();
+        stub.cameraService(camera,responseObserver);
         try {
             channel.awaitTermination(5, TimeUnit.SECONDS);
         } catch (InterruptedException e) {

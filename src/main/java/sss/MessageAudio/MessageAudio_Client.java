@@ -17,7 +17,7 @@ import com.google.protobuf.ByteString;
 
 
 public class MessageAudio_Client{
-    private static final String SERVICE_TYPE = "_messageaudio._tcp.local.";
+    private static final String SERVICE_TYPE = "_sss._tcp.local.";
     private static final String SERVICE_NAME = "messageaudio_server";
 
     public static void main(String[] args) throws IOException{

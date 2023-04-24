@@ -13,7 +13,7 @@ import javax.jmdns.ServiceInfo;
 import com.google.protobuf.ByteString;
 
 public class Movment_Server extends MovementImplBase {
-    private static final String SERVICE_TYPE = "_movement._tcp.local.";
+    private static final String SERVICE_TYPE = "_sss._tcp.local.";
     private static final String SERVICE_NAME = "movement_server";
     private static final int PORT = 50051;
 
@@ -40,7 +40,7 @@ public class Movment_Server extends MovementImplBase {
     @Override
     public void detectionMotion(MotionDetectionRequest request, StreamObserver<MotionDetectionResponse> responseObserver) {
         boolean isMoving = request.getIsMoving();
-        String responseMessage = isMoving ? "Motion detected" : "No motion detected";
+        String responseMessage = isMoving ? " is moving" : "No motion detected";
         responseObserver.onNext(MotionDetectionResponse.newBuilder()
                 .setMovingResponse(responseMessage)
                 .build());

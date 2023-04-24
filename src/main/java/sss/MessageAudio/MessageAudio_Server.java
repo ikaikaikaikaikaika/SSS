@@ -14,7 +14,7 @@ import com.google.protobuf.ByteString;
 
 
 public class MessageAudio_Server extends MessageAudioImplBase {
-    private static final String SERVICE_TYPE = "_messageaudio._tcp.local.";
+    private static final String SERVICE_TYPE = "_sss._tcp.local.";
     private static final String SERVICE_NAME = "messageaudio_server";
     private static final int PORT = 50052;
 
@@ -37,6 +37,7 @@ public class MessageAudio_Server extends MessageAudioImplBase {
 		}
 		
 	}//main
+
 
     @Override
     public void pushMessage(MessageRequest request, StreamObserver<MessageResponse> responseObserver) {

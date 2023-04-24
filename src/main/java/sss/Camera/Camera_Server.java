@@ -7,13 +7,15 @@ import io.grpc.stub.StreamObserver;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.util.Random;
+
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceInfo;
 
 import com.google.protobuf.ByteString;
 
 public class Camera_Server extends CameraImplBase {
-    private static final String SERVICE_TYPE = "_camera._tcp.local.";
+    private static final String SERVICE_TYPE = "_sss._tcp.local.";
     private static final String SERVICE_NAME = "camera_server";
     private static final int PORT = 50053;
 	public static void main(String[] args) throws IOException{
@@ -38,9 +40,16 @@ public class Camera_Server extends CameraImplBase {
 
     @Override
     public void cameraService(CameraRequest request, StreamObserver<CameraResponse> responseObserver) {
-        responseObserver.onNext(CameraResponse.newBuilder()
-                .setFrame(ByteString.copyFrom(new byte[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 0}))
-                .build());
+        System.out.println(request);
+		int i = new Random().nextInt(10)+1;
+		for (int t=0;t<i;t++){
+			int datalength =10;
+			byte[] randombyte=new byte[datalength];
+			new Random().nextBytes(randombyte);
+			responseObserver.onNext(CameraResponse.newBuilder()
+			.setFrame(ByteString.copyFrom(randombyte))
+			.build());
+		}
         responseObserver.onCompleted();
     }
 
