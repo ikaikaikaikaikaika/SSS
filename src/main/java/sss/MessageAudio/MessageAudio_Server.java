@@ -7,6 +7,8 @@ import io.grpc.stub.StreamObserver;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.util.Random;
+
 import javax.jmdns.JmDNS;
 import javax.jmdns.ServiceInfo;
 
@@ -54,10 +56,23 @@ public class MessageAudio_Server extends MessageAudioImplBase {
 
             @Override
             public void onNext(AudioRequest Request) {
+                byte[] sendvoice = new byte[]{1,2,3};
+                ByteString snedvoicereq = ByteString.copyFrom(sendvoice);
                 ByteString Audio = Request.getAudiosend();
-                AudioRespon audioRespon = AudioRespon.newBuilder().setAudioreceived(Audio).build();
-                System.out.println(Audio);
-                responseObserver.onNext(audioRespon);
+                if (Audio.equals(snedvoicereq)) {
+                    int i = new Random().nextInt(10)+1;
+                    for (int t=0;t<i;t++){
+                        int datalength =10;
+                        byte[] randombyte=new byte[datalength];
+                        new Random().nextBytes(randombyte);
+                        AudioRespon audioRespon = AudioRespon.newBuilder().setAudioreceived(ByteString.copyFrom(randombyte)).build();
+                        responseObserver.onNext(audioRespon);
+                    }
+                    responseObserver.onCompleted();
+				} else {
+					System.out.println(Audio);
+				}
+
             }
 
             @Override
