@@ -73,6 +73,9 @@ public class allClient{
         requestObserver.onNext(AudioRequest.newBuilder()
         .setAudiosend(ByteString.copyFrom(voice))
         .build());
+        requestObserver.onNext(AudioRequest.newBuilder()
+        .setAudiosend(ByteString.copyFrom(new byte[]{1,2,3}))
+        .build());
         requestObserver.onCompleted();
         try {
             channel.awaitTermination(5, TimeUnit.SECONDS);
